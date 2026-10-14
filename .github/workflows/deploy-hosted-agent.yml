@@ -24,6 +24,7 @@ env:
 jobs:
   deploy-and-smoke-test:
     name: Deploy and smoke test
+    if: vars.AZURE_RESOURCE_GROUP != 'rg-foundrydemo'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
