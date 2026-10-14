@@ -157,6 +157,11 @@ class InfrastructureTests(unittest.TestCase):
         self.assertNotIn("      - infra/**", workflow)
         self.assertNotIn("      - docs/**", workflow)
         self.assertIn("workflow_dispatch:", workflow)
+        self.assertIn("if: vars.AZURE_RESOURCE_GROUP != 'rg-foundrydemo'", workflow)
+        self.assertLess(
+            workflow.index("if: vars.AZURE_RESOURCE_GROUP != 'rg-foundrydemo'"),
+            workflow.index("steps:"),
+        )
         self.assertIn("id-token: write", workflow)
         self.assertNotIn("environment: foundry-hosted-agent", workflow)
         self.assertIn("name: Validate required repository variables", workflow)

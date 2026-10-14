@@ -3,6 +3,13 @@
 Build, deploy, and operate Microsoft Foundry hosted agents through an
 instructor-led course and runnable examples.
 
+The existing `rg-foundrydemo` deployment is being retired. The
+[root deployment workflow](.github/workflows/deploy-hosted-agent.yml) skips that
+resource group before Azure authentication; the course, reusable
+[IaC](infra/main.bicep), examples, and documentation publishing remain available.
+These source changes do not delete existing resources or retire private azd
+environments. A new deployment requires a separately authorized environment.
+
 ## Start learning
 
 Use the [GitHub Pages course](https://ericchansen.github.io/foundry-hosted-agents/course/)
